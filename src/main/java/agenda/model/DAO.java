@@ -2,6 +2,10 @@ package agenda.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DAO {
 	/** Módulo de conexão **/
@@ -20,6 +24,63 @@ public class DAO {
 			// TODO: handle exception
 			System.out.println(e);
 			return null;
+		}
+	}
+	
+	/** CRUD CREATE **/
+	public void inserirContato(JavaBeans contato) {
+		String query = "insert into contatos (nome, fone, email) values (?, ?, ?)";
+		try {
+			Connection conn = conectar();
+			
+			PreparedStatement pst = conn.prepareStatement(query);
+			pst.setString(1, contato.getNome());
+			pst.setString(2, contato.getFone());
+			pst.setString(3, contato.getEmail());
+			pst.executeUpdate();
+			
+			conn.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}
+	}
+	
+	/** CRUD READ **/
+	public ArrayList<JavaBeans> obterContatos() {
+		ArrayList<JavaBeans> contatos = new ArrayList<>();
+		String query = "select * from contatos order by nome";
+		
+		try {
+			Connection conn = conectar();
+			PreparedStatement pst = conn.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				String idcon = rs.getString(1);
+				String nome = rs.getString(2);
+				String fone = rs.getString(3);
+				String email = rs.getString(4);
+				
+				contatos.add(new JavaBeans(idcon, nome, fone, email));
+			}
+			
+			conn.close();
+			return contatos;
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}
+		
+		return contatos;
+	}
+	
+	public void editarContato(JavaBeans contato) {
+		String query = "select * from contatos where idcon=?";
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 	}
 	

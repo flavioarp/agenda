@@ -39,3 +39,22 @@ h1{
 	border: 1px solid #66bbff;
 	border-radius: 5px;
 }
+
+#contatos-table {
+	margin-top: 30px;
+	border-collapse: collapse;
+}
+
+#contatos-table th {
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: left;
+	background-color: #66bbff;
+	color: #fff;
+}
+
+#contatos-table td{
+	border: 1px solid #ddd;
+	padding: 10px;
+	
+}
