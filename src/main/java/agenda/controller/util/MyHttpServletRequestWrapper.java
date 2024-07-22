@@ -9,17 +9,28 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
+// TODO: Auto-generated Javadoc
 /**
  * Adapts a HttpServletRequestWrapper to support printing the contents of a
- * HttpServletRequest
+ * HttpServletRequest.
  */
 public class MyHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
+	/**
+	 * Instantiates a new my http servlet request wrapper.
+	 *
+	 * @param request the request
+	 */
 	public MyHttpServletRequestWrapper(HttpServletRequest request) {
 		super(request);
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
 	@Override
 	public String toString() {
 		HttpServletRequest request = (HttpServletRequest) getRequest();

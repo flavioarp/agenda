@@ -1,6 +1,5 @@
 /**
- * Validação de formulário
- * @author Flávio Oliveira
+ * @author Flavio Oliveira
  */
 
 
