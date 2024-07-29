@@ -11,3 +11,5 @@
 *.rar
 hs_err_pid*
 replay_pid*
+.build/
+.release/*.tar.gz
